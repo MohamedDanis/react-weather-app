@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import moment from 'moment'
 import './Weather.css'
+import axios from 'axios'
+import {UNSPLASH_API} from '../constant'
 
 function Weather(props) {
+    const query = props.weatherData.weather[0].description;
+    const [bgimg,setBgimg] = useState('')
+    var containerBg = {
+        backgroundImage : "url(" + bgimg + ")"
+        
+      };
+    useEffect(() => {
+       axios.get(`https://api.unsplash.com/search/photos?page=3&query=${query}&client_id=${UNSPLASH_API}`).then((response)=>{
+           console.log(response.data.results[3]);
+           setBgimg(response.data.results[Math.floor(Math.random() * 11)].urls.regular)
+       })
+    }, [])
+    
     return (
-        <div className="container">
+        <div className="container" style={containerBg}>
                 <div className="Card">
                     <div className="top">
                         <h2>{props.weatherData.name}</h2>

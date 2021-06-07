@@ -9,18 +9,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #293241;
+    /* background-color: #293241; */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .Card{
     width: 30%;
     height: 85vh;
-    background-color: #3D5A80;
+    /* background-color: #3D5A80; */
     border-radius: 15px 50px;
     color: #E0FBFC;
     position: relative;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.05)
+    );
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5), -1px -1px 2px #aaa,
+      1px 1px 2px #555;
+    backdrop-filter: blur(0.8rem);
 }
 .top{
     margin-top: 1.5rem;
+    width: 100%;
+    height: 100%;
 }
 .top h1{
     font-size: 4rem;
